@@ -1,0 +1,11 @@
+{% extends 'wardens/base.html' %}
+{% load bootstrap3 %}
+
+
+{% block content %}
+{% bootstrap_form form %}
+{# form does not submit #}
+<button type="submit" form="UserForm" value="Submit">Submit</button>
+
+
+{% endblock %}

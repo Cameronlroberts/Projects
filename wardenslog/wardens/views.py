@@ -1,10 +1,21 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+
 from .forms import IncidentForm
 
-from django.contrib.auth import authenticate, login
-from django.views.generic import View
-from .forms import UserForm
+from django.contrib.auth import (
+    authenticate,
+    get_user_model,
+    login,
+    logout,
+
+    )
+
+from .forms import UserLoginForm
+
+
+#from django.views.generic import View
+#from .forms import UserForm
 
 
 def index(request):
@@ -16,8 +27,8 @@ def incident(request):
     return render(request, 'wardens/incident.html')
 
 
-#def report(request):
- #   return HttpResponse("this is the report form")
+# def report(request):
+#   return HttpResponse("this is the report form")
 
 
 def closed(request):
@@ -29,7 +40,6 @@ def log(request):
 
 
 def incident_form(request):
-
     form = IncidentForm(request.POST or None)
 
     if form.is_valid():
@@ -39,34 +49,23 @@ def incident_form(request):
         'form': form,
     })
 
-class UserFormView(View):
-    form_class = UserForm
-    template_name= 'wardens/log.html'
 
-    #display blank form
+def login_view(request):
+    print(request.user.is_authenticated())
+    title = "Login"
+    form = UserLoginForm(request.POST or None)
+    if form.is_valid():
+        username = form.cleaned_data.get("username")        #one has double quoatations other has single?
+        password = form.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        login(request, user)
+        print(request.user.is_authenticated())
 
-    def get(self, request):
-        form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
+    return render(request, "wardens/form.html", {"form": form, "title": title})
 
-    #process form data
-    def post(self, request):
-        form = self.form_class(request.POST)
 
-        if form.is_valid():
+def logout_view(request):
+    logout(request)
+    return render(request, "form.html", {})
 
-            user = form.save(commit=False)
 
-            #cleaned (normalized) data
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user.set_password(password)
-            user.save()
-
-            user = authenticate(username=username, password=password)
-
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return redirect('index.view')
-            return render(render, self.template_name, {'form': form})

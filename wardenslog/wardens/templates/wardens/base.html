@@ -1,4 +1,6 @@
+{% load i18n %}
 <!DOCTYPE html>
+
 
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -15,10 +17,12 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <title style="align-content: center">  Wardens Log </title>
+    <title style="align-content: center">  {% trans 'Wardens Log' %} </title>
 
 </head>
+{% block paragraph %}
 
+{% endblock %}
 <body>
 {% block navbar %}
     <nav class="navbar navbar-inverse navbar-fixed-top">

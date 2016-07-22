@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-22 14:11+0100\n"
+"POT-Creation-Date: 2016-07-22 14:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,52 +19,158 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != "
 "11) ? 2 : 3;\n"
 
-#: templates/wardens/closed.html:8 templates/wardens/required.html:9
-#: templates/wardens/taken.html:8
+#: templates/wardens/base.html:20
+msgid "Wardens Log"
+msgstr "Log Wardeiniaid"
+
+#: templates/wardens/closed.html:5
+msgid "This is the cases table"
+msgstr "tabl achosion"
+
+#: templates/wardens/closed.html:8 templates/wardens/detail.html:32
+#: templates/wardens/required.html:9 templates/wardens/taken.html:8
 msgid "Status"
-msgstr ""
+msgstr "Statws"
 
-#: templates/wardens/closed.html:9 templates/wardens/required.html:10
-#: templates/wardens/taken.html:9
+#: templates/wardens/closed.html:9 templates/wardens/detail.html:8
+#: templates/wardens/required.html:10 templates/wardens/taken.html:9
 msgid "Title"
-msgstr ""
+msgstr "Teitl"
 
-#: templates/wardens/closed.html:10 templates/wardens/required.html:11
-#: templates/wardens/taken.html:10
+#: templates/wardens/closed.html:10 templates/wardens/detail.html:11
+#: templates/wardens/required.html:11 templates/wardens/taken.html:10
 msgid "Date Created"
-msgstr ""
+msgstr "Dyddiad creu"
 
 #: templates/wardens/closed.html:11 templates/wardens/required.html:12
 #: templates/wardens/taken.html:11
 msgid "Warden Name"
-msgstr ""
+msgstr "Enw Warden"
 
 #: templates/wardens/closed.html:12 templates/wardens/required.html:16
 #: templates/wardens/taken.html:12
 msgid "View"
-msgstr ""
+msgstr "Golygfa"
 
 #: templates/wardens/closed.html:20 templates/wardens/required.html:28
 #: templates/wardens/taken.html:20
 msgid "detail"
-msgstr ""
+msgstr "Manylion"
 
-#: templates/wardens/required.html:13
-msgid "Disciplinary Required"
-msgstr ""
+#: templates/wardens/detail.html:14
+msgid "Date Modified"
+msgstr "Dyddiad addaswyd"
 
-#: templates/wardens/required.html:14
+#: templates/wardens/detail.html:17
+msgid "Warden"
+msgstr "Warden"
+
+#: templates/wardens/detail.html:20
+msgid "Senior Warden"
+msgstr "Uwch Warden"
+
+#: templates/wardens/detail.html:23
+msgid "Site"
+msgstr "Safle"
+
+#: templates/wardens/detail.html:26
+msgid "Halls"
+msgstr "Neuaddau"
+
+#: templates/wardens/detail.html:29
+msgid "Incident Type"
+msgstr "Natur y digwyddiad"
+
+#: templates/wardens/detail.html:35
+msgid "Description"
+msgstr "Disgrifiad"
+
+#: templates/wardens/detail.html:38
+msgid "Notes To"
+msgstr "Nodiadau i"
+
+#: templates/wardens/detail.html:41
+msgid "Notes By"
+msgstr "Nodiadau gan"
+
+#: templates/wardens/detail.html:44
+msgid "Warning Issued"
+msgstr "Rhybudd cyhoeddi"
+
+#: templates/wardens/detail.html:47
+msgid "Disciplinary required"
+msgstr "Camau disgyblu eu hangen"
+
+#: templates/wardens/detail.html:50 templates/wardens/required.html:14
 msgid "Disciplinary called by"
-msgstr ""
+msgstr "Gelwir disgyblu gan"
 
-#: templates/wardens/required.html:15
+#: templates/wardens/detail.html:53 templates/wardens/required.html:15
 msgid "Disciplinary date"
+msgstr "Dyddiad disgyblu"
+
+#: templates/wardens/detail.html:56
+msgid "Student"
+msgstr "Myfyriwr"
+
+#: templates/wardens/detail.html:59
+msgid "Accomplices"
+msgstr "Affeithiwr"
+
+#: templates/wardens/detail.html:62
+msgid "Complainant"
+msgstr "Achwynydd"
+
+#: templates/wardens/detail.html:65
+msgid "Witnesses"
+msgstr "Tystion"
+
+#: templates/wardens/incident_form.html:14
+msgid "Create Report"
+msgstr "Creu Adroddiad"
+
+#: templates/wardens/logout.html:11
+msgid "Submit"
+msgstr "Cyflwyno"
+
+#: templates/wardens/required.html:7
+msgid "below is a list of pending disciplinary action "
 msgstr ""
 
+#: templates/wardens/required.html:13 templates/wardens/wardens.html:13
+msgid "Disciplinary Required"
+msgstr "Disgyblu ofynnol"
+
+#: templates/wardens/taken.html:5
+msgid "Taken disciplinary action"
+msgstr "Camau disgyblu a gymerwyd"
+
+#: templates/wardens/thankyou.html:7
+msgid "this is the logout page"
+msgstr "Dyma'r dudalen allgofnodi"
+
+#: templates/wardens/thankyou.html:8
+msgid ""
+"should you wish to log back in please click the button below to navigate "
+"back to the login page"
+msgstr "os hoffech fewngofnodi eto cliciwch ar y botwm isod i lywio "
+"nol ir tudalen login"
 #: templates/wardens/wardens.html:11
 msgid "Homepage"
-msgstr ""
+msgstr "Hafan"
 
-#: views.py:70
+#: templates/wardens/wardens.html:12
+msgid "Incident Report"
+msgstr "Adroddiad Digwyddiad"
+
+#: templates/wardens/wardens.html:14
+msgid "Disciplinary Taken"
+msgstr "Disgyblu a cymerud"
+
+#: templates/wardens/wardens.html:15
+msgid "Cases"
+msgstr "Achosion"
+
+#: views.py:67
 msgid "Saved"
-msgstr ""
+msgstr "Achub"

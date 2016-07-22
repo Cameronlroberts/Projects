@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import Http404
 from .forms import IncidentForm
+from django.views.generic.edit import  UpdateView
 
 from django.contrib.auth import (
     authenticate,
@@ -40,11 +41,6 @@ def closed(request):
 
 
 @login_required
-def log(request):
-    return render(request, 'wardens/log.html')
-
-
-@login_required
 def thankyou(request):
     return render(request, 'wardens/thankyou.html')
 
@@ -73,6 +69,9 @@ def incident_form(request):
     return render(request, 'wardens/incident_form.html', {
         'form': form,
     })
+
+
+
 
 
 def login_view(request):
@@ -112,10 +111,26 @@ def taken(request):
     print results
     return render(request, "wardens/taken.html", {"results": results})
 
-
+@login_required
 def detail(request, pk):
     try:
-        incident = Incident.objects.get(pk=pk)
+        incident = Incident.objects.get(pk=pk)      #get object or 404? reduce amounts of code
     except Incident.DoesNotExist:
         raise Http404("report does not exist")
     return render(request, 'wardens/detail.html', {'incident': incident})
+
+
+@login_required
+def update(request, pk=None):
+    instance = get_object_or_404(Incident, pk=pk)
+    form = IncidentForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        instance = form.save()
+        instance.save()
+
+    context = {
+        "title" : instance.title,
+        "instance" : instance,
+        "form" : form,
+    }
+    return render(request, "wardens/incident_form.html", context)

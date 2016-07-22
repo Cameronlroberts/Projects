@@ -5,48 +5,72 @@
 
 
 <dl  class="dl-horizontal">
-  <dt>Title</dt>
+  <dt> {% trans 'Title'%}  </dt>
   <dd>{{ incident.title }}</dd>
-  <dt>Date Created</dt>
+    
+  <dt> {% trans 'Date Created'%} </dt>
   <dd>{{ incident.date_created }}</dd>
-  <dt>Date Modified</dt>
+    
+  <dt> {% trans 'Date Modified'%} </dt>
   <dd>{{ incident.date_modified }}</dd>
-  <dt>Warden </dt>
+    
+  <dt> {% trans 'Warden' %} </dt>
   <dd>{{ incident.warden_name }}</dd>
-  <dt>Senior Warden</dt>
+    
+  <dt> {% trans 'Senior Warden'%} </dt>
   <dd>{{ incident.senior_warden }}</dd>
-  <dt>Site</dt>
+    
+  <dt> {% trans 'Site'%} </dt>
   <dd>{{ incident.site }}</dd>
-  <dt>Halls</dt>
+    
+  <dt> {% trans 'Halls'%} </dt>
   <dd>{{ incident.halls }}</dd>
-  <dt>Incident Type</dt>
+    
+  <dt> {% trans 'Incident Type'%} </dt>
   <dd>{{ incident.incident_type }}</dd>
-  <dt> Status</dt>
+    
+  <dt> {% trans 'Status'%} </dt>
   <dd>{{ incident.status }}</dd>
-  <dt>Description</dt>
+    
+  <dt> {% trans 'Description'%} </dt>
   <dd>{{ incident.description }}</dd>
-  <dt>Notes To</dt>
+    
+  <dt> {% trans 'Notes To'%} </dt>
   <dd>{{ incident.notes_to }}</dd>
-  <dt>Notes By</dt>
+    
+  <dt> {% trans 'Notes By'%} </dt>
   <dd> {{ incident.notes_by }} </dd>
-  <dt> Warning Issued</dt>
+    
+  <dt> {% trans 'Warning Issued'%} </dt>
   <dd>{{ incident.warning_issued }}</dd>
-  <dt>Disciplinary required</dt>
+    
+  <dt> {% trans 'Disciplinary required'%} </dt>
   <dd>{{ incident.disciplinary_required }}</dd>
-  <dt>Disciplinary called by</dt>
+    
+  <dt> {% trans 'Disciplinary called by'%} </dt>
   <dd>{{ incident.disciplinary_called_by }}</dd>
-  <dt>Disciplinary date</dt>
+    
+  <dt> {% trans 'Disciplinary date'%} </dt>
   <dd>{{ incident.disciplinary_date }}</dd>
-  <dt>Student</dt>
+    
+  <dt> {% trans 'Student'%} </dt>
   <dd>{{ incident.student }}</dd>
-  <dt>Accomplices</dt>
+    
+  <dt> {% trans 'Accomplices'%} </dt>
   <dd>{{ incident.accomplices }}</dd>
-  <dt>Complainant</dt>
+    
+  <dt> {% trans 'Complainant'%} </dt>
   <dd>{{ incident.complainant }}</dd>
-  <dt>Witnesses</dt>
+    
+  <dt> {% trans 'Witnesses'%} </dt>
   <dd>{{ incident.witnesses }}</dd>
 
 </dl>
+
+     <div class="button" style="display: block; text-align: center;line-height: 125px; margin-left: auto; margin-right: auto">
+ <div class="button" style="display: block; text-align: center;line-height: 125px; margin-left: auto; margin-right: auto">
+    <a href="{% url 'update' item.pk %}" style="height: 150px; width: 150px; margin-right: 10px; text-align : center;line-height: 125px " type="button" class="btn btn-default">{% trans 'Update form' %}</a>
+</div>
 {% endblock %}
 
 

@@ -1,5 +1,6 @@
 {% extends 'wardens/base.html' %}
 {% load bootstrap3 %}
+{% load i18n %}
 
 
 {% block content %}
@@ -10,8 +11,7 @@
 
    {% csrf_token %}
     <button type="submit" class="btn btn-primary">
-    Create Report
-
+    {% trans 'Create Report' %}
     </button>
 </form>
 

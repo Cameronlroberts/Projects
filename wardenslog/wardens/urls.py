@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^required/$', views.required, name='required'),
     url(r'^taken/$', views.taken, name='taken'),
     url(r'^detail/(?P<pk>[0-9]+)/$', views.detail, name='detail'),
-
+    url(r'^update/(?P<pk>[0-9]+)/$', views.update, name='update'),
 
 
 ]

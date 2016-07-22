@@ -4,7 +4,7 @@
 
 {% block content %}
 <table class="table table-hover">
- <h1> below is a list of pending disciplinary action </h1>
+ <h1> {% trans 'below is a list of pending disciplinary action ' %}</h1>
     <tr>
         <th> {% trans 'Status' %} </td>
         <th> {% trans 'Title' %}  </th>
@@ -25,7 +25,7 @@
     <td>{{ item.disciplinary_action }}</td>
     <td>{{ item.disciplinary_called_by }}</td>
     <td>{{ item.disciplinary_date }}</td>
-    <td><a href="{% url 'detail' item.pk  %}">{% trans 'detail' %}</a></td>
+    <td><a href="{% url 'detail' item.pk  %}"> {% trans 'detail' %}</a></td>
 </tr>
 {% endfor %}
 </table>

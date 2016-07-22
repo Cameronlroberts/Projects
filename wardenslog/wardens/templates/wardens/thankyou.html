@@ -1,11 +1,11 @@
 {% extends 'wardens/base.html' %}
 
-
+{% load i18n %}
 
     {% block navbar %}
 
-        <h1 align="center"> this is the logout page </h1>
-        <p align="center"> should you wish to log back in please click the button below to navigate back to the login page</p>
+        <h1 align="center"> {% trans 'this is the logout page' %} </h1>
+        <p align="center"> {% trans 'should you wish to log back in please click the button below to navigate back to the login page' %} </p>
         <a href="/wardens/login" style="height: 150px; width: 150px; display: block; text-align: center;line-height: 125px; margin-left: auto; margin-right: auto" type="button" class="btn btn-default">Login</a>
 
 

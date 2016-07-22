@@ -1,5 +1,8 @@
+from django.utils.translation import ugettext as _
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from .forms import IncidentForm
 
@@ -9,20 +12,21 @@ from django.contrib.auth import (
     login,
     logout,
 
-    )
+)
 
 from .forms import UserLoginForm
+from .models import Incident
 
 
-#from django.views.generic import View
-#from .forms import UserForm
+# from django.views.generic import View
+# from .forms import UserForm
 
-
+@login_required
 def index(request):
     return render(request, 'wardens/wardens.html')
 
 
-# @permission_required('wardens.incident')
+@login_required
 def incident(request):
     return render(request, 'wardens/incident.html')
 
@@ -30,21 +34,39 @@ def incident(request):
 # def report(request):
 #   return HttpResponse("this is the report form")
 
-
+@login_required
 def closed(request):
     return render(request, 'wardens/closed.html')
 
 
+@login_required
 def log(request):
     return render(request, 'wardens/log.html')
 
+@login_required
+def thankyou(request):
+    return render(request, 'wardens/thankyou.html')
 
+@login_required
+def disciplinary_required(request):
+    return render(request, 'wardens/required.html')
+
+@login_required
+def disciplinary_taken(request):
+    return render(request, 'wardens/taken.html')
+
+
+@login_required
 def incident_form(request):
     form = IncidentForm(request.POST or None)
 
-    if form.is_valid():
-        return redirect('incident')
+    # import pdb; pdb.set_trace()
 
+    if form.is_valid():
+        form.save()
+        messages.success(request, _('Saved'))
+        return redirect('incident_form')
+    print form.errors
     return render(request, 'wardens/incident_form.html', {
         'form': form,
     })
@@ -55,17 +77,24 @@ def login_view(request):
     title = "Login"
     form = UserLoginForm(request.POST or None)
     if form.is_valid():
-        username = form.cleaned_data.get("username")        #one has double quoatations other has single?
+        username = form.cleaned_data.get("username")  # one has double quotations other has single?
         password = form.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         login(request, user)
-        print(request.user.is_authenticated())
+        return redirect("/wardens/")
+    print(request.user.is_authenticated())  # not required in final project
+    return render(request, "wardens/login.html", {"form": form, "title": title})
 
-    return render(request, "wardens/form.html", {"form": form, "title": title})
 
-
-def logout_view(request):
+def logout_view(request):  # logs the user out and redirects to the 'thankyou' page
     logout(request)
-    return render(request, "form.html", {})
+    return redirect("/wardens/thankyou/")
+    return render(request, "wardens/thankyou.html", {})
 
+
+@login_required
+def cases(request):  # should work when reports are created
+    results = Incident.objects.all()
+    print results
+    return render(request, "wardens/closed.html", {"results": results})
 

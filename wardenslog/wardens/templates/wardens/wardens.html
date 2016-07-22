@@ -4,10 +4,12 @@
 {% endblock %}
 
 {% block content %}
-<h1> homepage</h1>
 
-    <a href="/wardens/incident/form" style="height: 150px; width: 150px; margin-right: 10px; text-align: center" type="button" class="btn btn-default">Incident Report</a>
-     <a href="#" style="height: 150px; width: 150px; margin-right: 10px;" type="button" class="btn btn-default">Disciplinary Required</a>
-     <a href="#" style="height: 150px; width: 150px; margin-right: 10px;" type="button" class="btn btn-default">Disciplinary Taken</a>
-     <a href="#" style="height: 150px; width: 150px; margin-right: 10px;" type="button" class="btn btn-default">Closed Cases</a>
+ <div class="button" style="display: block; text-align: center;line-height: 125px; margin-left: auto; margin-right: auto">
+    <h1> homepage</h1>
+    <a href="/wardens/incident/form" style="height: 150px; width: 150px; margin-right: 10px; text-align : center;line-height: 125px " type="button" class="btn btn-default">Incident Report</a>
+     <a href="/wardens/required" style="height: 150px; width: 150px; margin-right: 10px;line-height: 125px" type="button" class="btn btn-default">Disciplinary Required</a>
+     <a href="/wardens/taken" style="height: 150px; width: 150px; margin-right: 10px;line-height: 125px" type="button" class="btn btn-default">Disciplinary Taken</a>
+     <a href="/wardens/closed" style="height: 150px; width: 150px; margin-right: 10px;line-height: 125px " type="button" class="btn btn-default">Closed Cases</a>
+</div>
 {% endblock %}

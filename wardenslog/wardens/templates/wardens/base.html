@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,12 +15,12 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <title>Wardens Log</title>
+    <title style="align-content: center"> Wardens Log </title>
 
 </head>
 
 <body>
-
+{% block navbar %}
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -34,16 +34,20 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/wardens/incident/form/">Incident Form</a></li>
-            <li><a href="/wardens/closed/">Closed Cases</a></li>
+              <li><a href="/wardens/incident/form/">Incident Form</a></li>
+              <li><a href="/wardens/required">Disciplinary required</a></li>
+              <li><a href="/wardens/taken/">Disciplinary taken</a></li>
+              <li><a href="/wardens/closed/">Closed Cases</a></li>
+              <li><a style="float:right" href="/wardens/logout/"> Logout </a> </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
+        </div>
     </nav>
 
     <div class="container" style="padding-top: 70px">
 
-
+{% endblock navbar %}
 
 
 {% block content %}

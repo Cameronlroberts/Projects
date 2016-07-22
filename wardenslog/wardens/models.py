@@ -6,10 +6,16 @@ from django.db import models
 class Site(models.Model):   #site model containing all relevant information regarding site
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Hall(models.Model):   #Hall model containing all relevant information regarding student
     name = models.CharField(max_length=40)
     site = models.ForeignKey(Site, related_name='halls')
+
+    def __str__(self):
+        return self.name
 
 
 class Student(models.Model):                        #student model. containing all relevant information regarding student
@@ -20,14 +26,20 @@ class Student(models.Model):                        #student model. containing a
     hall = models.CharField(max_length=30)
     room_number = models.CharField(max_length=50)
 
+    def __str__(self):
+        return '%s %s' % (self.surname, self.forename)
+
 
 class IncidentType(models.Model):   #Model for the type of incident at hand
     type = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.type
+
 
 class Incident(models.Model):       # all fields related to creating an incident report and/or viewing cases i.e closed
     title = models.CharField(max_length=100)
-    date_created = models.DateTimeField(auto_created=True)
+    date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
     warden_name = models.CharField(max_length=150)
     senior_warden = models.CharField(max_length=150)

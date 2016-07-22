@@ -5,41 +5,22 @@
  <h1> this is the closed cases table</h1>
 <table class="table table-hover">
     <tr>
-        <th> {% trans 'title' %}  </th>
-
-        <th> {% trans 'date' %} </th>
-
+        <th> {% trans 'Status' %} </td>
+        <th> {% trans 'Title' %}  </th>
+        <th> {% trans 'Date Created' %} </th>
+        <th> {% trans 'Warden Name'%}</th>
+        <th> {% trans 'View' %}</th>
     </tr>
     {% for item in results %}
 <tr>
+    <td>{{ item.status }}</td>
     <td>{{ item.title }}</td>
     <td>{{ item.date_created }}</td>
-    <td>{{ item.date_modified}}</td>
+    <td>{{ item.warden_name }}</td>
+    <td><a href="{% url 'detail' item.pk  %}">{% trans 'detail' %}</a></td>
 </tr>
 {% endfor %}
 </table>
 
 {% endblock %}
 
-
- title = models.CharField(max_length=100)
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
-    warden_name = models.CharField(max_length=150)
-    senior_warden = models.CharField(max_length=150)
-    site = models.ForeignKey(Site, related_name='incidents')
-    incident_type = models.ForeignKey(IncidentType, related_name='incidents')
-    halls = models.ForeignKey(Hall, related_name='incidents')
-    status = models.CharField(max_length=250)
-    description = models.TextField()
-
-    notes_to = models.TextField(null=True, blank=True)
-    notes_by = models.TextField(null=True, blank=True)
-    warning_issued = models.CharField(max_length=250, null=True, blank=True)
-    disciplinary_required = models.NullBooleanField(null=True, blank=True)
-    disciplinary_called_by = models.CharField(max_length=150, null=True, blank=True)
-    disciplinary_date = models.DateTimeField(null=True, blank=True)
-    student = models.ForeignKey(Student, related_name='incidents')
-    complainant = models.CharField(max_length=500, null=True, blank=True)
-    accomplices = models.CharField(max_length=500, null=True, blank=True)
-    witnesses = models.CharField(max_length=500, null=True, blank=True)

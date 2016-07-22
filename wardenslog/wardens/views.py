@@ -1,9 +1,9 @@
 from django.utils.translation import ugettext as _
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-
+from django.http import Http404
 from .forms import IncidentForm
 
 from django.contrib.auth import (
@@ -43,13 +43,16 @@ def closed(request):
 def log(request):
     return render(request, 'wardens/log.html')
 
+
 @login_required
 def thankyou(request):
     return render(request, 'wardens/thankyou.html')
 
+
 @login_required
 def disciplinary_required(request):
     return render(request, 'wardens/required.html')
+
 
 @login_required
 def disciplinary_taken(request):
@@ -89,7 +92,6 @@ def login_view(request):
 def logout_view(request):  # logs the user out and redirects to the 'thankyou' page
     logout(request)
     return redirect("/wardens/thankyou/")
-    return render(request, "wardens/thankyou.html", {})
 
 
 @login_required
@@ -98,3 +100,22 @@ def cases(request):  # should work when reports are created
     print results
     return render(request, "wardens/closed.html", {"results": results})
 
+@login_required
+def required(request):
+    results = Incident.objects.all()
+    print results
+    return render(request, "wardens/required.html", {"results": results})
+
+@login_required
+def taken(request):
+    results = Incident.objects.all()
+    print results
+    return render(request, "wardens/taken.html", {"results": results})
+
+
+def detail(request, pk):
+    try:
+        incident = Incident.objects.get(pk=pk)
+    except Incident.DoesNotExist:
+        raise Http404("report does not exist")
+    return render(request, 'wardens/detail.html', {'incident': incident})

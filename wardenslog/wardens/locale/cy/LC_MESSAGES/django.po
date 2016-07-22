@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-22 14:11+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != "
+"11) ? 2 : 3;\n"
+
+#: templates/wardens/closed.html:8 templates/wardens/required.html:9
+#: templates/wardens/taken.html:8
+msgid "Status"
+msgstr ""
+
+#: templates/wardens/closed.html:9 templates/wardens/required.html:10
+#: templates/wardens/taken.html:9
+msgid "Title"
+msgstr ""
+
+#: templates/wardens/closed.html:10 templates/wardens/required.html:11
+#: templates/wardens/taken.html:10
+msgid "Date Created"
+msgstr ""
+
+#: templates/wardens/closed.html:11 templates/wardens/required.html:12
+#: templates/wardens/taken.html:11
+msgid "Warden Name"
+msgstr ""
+
+#: templates/wardens/closed.html:12 templates/wardens/required.html:16
+#: templates/wardens/taken.html:12
+msgid "View"
+msgstr ""
+
+#: templates/wardens/closed.html:20 templates/wardens/required.html:28
+#: templates/wardens/taken.html:20
+msgid "detail"
+msgstr ""
+
+#: templates/wardens/required.html:13
+msgid "Disciplinary Required"
+msgstr ""
+
+#: templates/wardens/required.html:14
+msgid "Disciplinary called by"
+msgstr ""
+
+#: templates/wardens/required.html:15
+msgid "Disciplinary date"
+msgstr ""
+
+#: templates/wardens/wardens.html:11
+msgid "Homepage"
+msgstr ""
+
+#: views.py:70
+msgid "Saved"
+msgstr ""

@@ -1,8 +1,25 @@
 {%  extends 'wardens/base.html' %}
-
+{% load i18n %}
 
 {% block content %}
-
-<h1> this is a list of disciplinary action taken </h1>
+ <h1> this is the closed cases table</h1>
+<table class="table table-hover">
+    <tr>
+        <th> {% trans 'Status' %} </td>
+        <th> {% trans 'Title' %}  </th>
+        <th> {% trans 'Date Created' %} </th>
+        <th> {% trans 'Warden Name'%}</th>
+        <th> {% trans 'View' %}</th>
+    </tr>
+    {% for item in results %}
+<tr>
+    <td>{{ item.status }}</td>
+    <td>{{ item.title }}</td>
+    <td>{{ item.date_created }}</td>
+    <td>{{ item.warden_name }}</td>
+    <td><a href="{% url 'detail' item.pk  %}">{% trans 'detail' %}</a></td>
+</tr>
+{% endfor %}
+</table>
 
 {% endblock %}

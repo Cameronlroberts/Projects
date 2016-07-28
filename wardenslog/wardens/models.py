@@ -46,13 +46,34 @@ class Incident(models.Model):       # all fields related to creating an incident
     site = models.ForeignKey(Site, related_name='incidents')
     incident_type = models.ForeignKey(IncidentType, related_name='incidents')
     halls = models.ForeignKey(Hall, related_name='incidents')
-    status = models.CharField(max_length=250)
+    ACTIVE = 'Active'
+    CLOSED = 'Closed'
+    CASE_STATUS = (
+        (ACTIVE, 'Active'),
+        (CLOSED, 'Closed'),
+    )
+    Case_Status = models.CharField(
+        max_length=50,
+        choices=CASE_STATUS,
+    )
     description = models.TextField()
-
     notes_to = models.TextField(null=True, blank=True)
     notes_by = models.TextField(null=True, blank=True)
     warning_issued = models.CharField(max_length=250, null=True, blank=True)
-    disciplinary_required = models.NullBooleanField(null=True, blank=True)
+    #disciplinary_required = models.NullBooleanField(null=True, blank=True)
+
+    YES = 'YES'
+    NO = 'No'
+    DISCIPLINARY_REQUIRED = (
+        (YES, 'Yes'),
+        (NO, 'No'),
+    )
+    Disciplinary_required = models.CharField(
+        null=True,
+        max_length=50,
+        choices=DISCIPLINARY_REQUIRED
+    )
+
     disciplinary_called_by = models.CharField(max_length=150, null=True, blank=True)
     disciplinary_date = models.DateTimeField(null=True, blank=True)
     student = models.ForeignKey(Student, related_name='incidents')

@@ -18,15 +18,20 @@
     </tr>
     {% for item in results %}
 <tr>
-    <td>{{ item.status }}</td>
+    <td>{{ item.Case_Status }}</td>
     <td>{{ item.title }}</td>
     <td>{{ item.date_created }}</td>
     <td>{{ item.warden_name }}</td>
-    <td>{{ item.disciplinary_action }}</td>
+    <td>{{ item.Disciplinary_required }}</td>
     <td>{{ item.disciplinary_called_by }}</td>
     <td>{{ item.disciplinary_date }}</td>
     <td><a href="{% url 'detail' item.pk  %}"> {% trans 'detail' %}</a></td>
+
 </tr>
+
 {% endfor %}
 </table>
+
 {% endblock %}
+
+

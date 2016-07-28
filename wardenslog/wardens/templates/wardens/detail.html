@@ -30,7 +30,7 @@
   <dd>{{ incident.incident_type }}</dd>
     
   <dt> {% trans 'Status'%} </dt>
-  <dd>{{ incident.status }}</dd>
+  <dd>{{ incident.Case_Status }}</dd>
     
   <dt> {% trans 'Description'%} </dt>
   <dd>{{ incident.description }}</dd>
@@ -45,7 +45,7 @@
   <dd>{{ incident.warning_issued }}</dd>
     
   <dt> {% trans 'Disciplinary required'%} </dt>
-  <dd>{{ incident.disciplinary_required }}</dd>
+  <dd>{{ incident.Disciplinary_required }}</dd>
     
   <dt> {% trans 'Disciplinary called by'%} </dt>
   <dd>{{ incident.disciplinary_called_by }}</dd>
@@ -67,9 +67,9 @@
 
 </dl>
 
-     <div class="button" style="display: block; text-align: center;line-height: 125px; margin-left: auto; margin-right: auto">
- <div class="button" style="display: block; text-align: center;line-height: 125px; margin-left: auto; margin-right: auto">
-    <a href="{% url 'update' item.pk %}" style="height: 150px; width: 150px; margin-right: 10px; text-align : center;line-height: 125px " type="button" class="btn btn-default">{% trans 'Update form' %}</a>
+<div class="btn-group" role="group" aria-label="...">
+
+  <a href="/wardens/update/1" type="button" class="btn btn-default">Edit</a>
 </div>
 {% endblock %}
 

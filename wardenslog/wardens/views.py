@@ -63,7 +63,7 @@ def incident_form(request):
 
     if form.is_valid():
         form.save()
-        messages.success(request, _('Saved'))
+        messages.success(request, 'Saved')
         return redirect('incident_form')
     print form.errors
     return render(request, 'wardens/incident_form.html', {
@@ -121,7 +121,7 @@ def detail(request, pk):
 
 
 @login_required
-def update(request, pk=None):
+def update(request, pk):
     instance = get_object_or_404(Incident, pk=pk)
     form = IncidentForm(request.POST or None, instance=instance)
     if form.is_valid():
@@ -129,8 +129,8 @@ def update(request, pk=None):
         instance.save()
 
     context = {
-        "title" : instance.title,
-        "instance" : instance,
-        "form" : form,
+        "title": instance.title,
+        "instance": instance,
+        "form": form,
     }
     return render(request, "wardens/incident_form.html", context)

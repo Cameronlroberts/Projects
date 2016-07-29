@@ -55,13 +55,23 @@ class Incident(models.Model):       # all fields related to creating an incident
     Case_Status = models.CharField(
         max_length=50,
         choices=CASE_STATUS,
+        default=ACTIVE
     )
     description = models.TextField()
     notes_to = models.TextField(null=True, blank=True)
     notes_by = models.TextField(null=True, blank=True)
-    warning_issued = models.CharField(max_length=250, null=True, blank=True)
-    #disciplinary_required = models.NullBooleanField(null=True, blank=True)
-
+    YES = 'YES'
+    NO = 'No'
+    WARNING_ISSUED = (
+        (YES, 'Yes'),
+        (NO, 'No'),
+    )
+    warning_issued = models.CharField(
+        null=True,
+        max_length=50,
+        choices=WARNING_ISSUED,
+        default=YES
+    )
     YES = 'YES'
     NO = 'No'
     DISCIPLINARY_REQUIRED = (
@@ -71,9 +81,9 @@ class Incident(models.Model):       # all fields related to creating an incident
     Disciplinary_required = models.CharField(
         null=True,
         max_length=50,
-        choices=DISCIPLINARY_REQUIRED
+        choices=DISCIPLINARY_REQUIRED,
+        default=YES
     )
-
     disciplinary_called_by = models.CharField(max_length=150, null=True, blank=True)
     disciplinary_date = models.DateTimeField(null=True, blank=True)
     student = models.ForeignKey(Student, related_name='incidents')

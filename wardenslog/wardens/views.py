@@ -94,20 +94,21 @@ def logout_view(request):  # logs the user out and redirects to the 'thankyou' p
 
 
 @login_required
-def cases(request):  # should work when reports are created
+def cases(request):
     results = Incident.objects.all()
     print results
     return render(request, "wardens/closed.html", {"results": results})
 
+
 @login_required
 def required(request):
-    results = Incident.objects.all()
+    results = Incident.objects.filter(Disciplinary_required='YES', ).exclude(Case_Status='Closed')
     print results
     return render(request, "wardens/required.html", {"results": results})
 
 @login_required
 def taken(request):
-    results = Incident.objects.all()
+    results = Incident.objects.filter(Disciplinary_required='YES', Case_Status='Closed')
     print results
     return render(request, "wardens/taken.html", {"results": results})
 

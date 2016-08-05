@@ -44,8 +44,8 @@ class Incident(models.Model):       # all fields related to creating an incident
     warden_name = models.CharField(max_length=150)
     senior_warden = models.CharField(max_length=150)
     site = models.ForeignKey(Site, related_name='incidents')
-    incident_type = models.ForeignKey(IncidentType, related_name='incidents')
     halls = models.ForeignKey(Hall, related_name='incidents')
+    incident_type = models.ForeignKey(IncidentType, related_name='incidents')
     ACTIVE = 'Active'
     CLOSED = 'Closed'
     CASE_STATUS = (

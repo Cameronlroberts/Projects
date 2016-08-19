@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'wardens',
-    'bootstrap3'
+    'bootstrap3',
+    'coverage'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -50,6 +51,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'wardenslog.urls'
@@ -108,6 +110,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+from django.utils.translation import ugettext_lazy as _
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('cy', _('Cymraeg')),
+]
 
 TIME_ZONE = 'Europe/London'
 

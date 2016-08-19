@@ -102,13 +102,13 @@ def cases(request):
 
 @login_required
 def required(request):
-    results = Incident.objects.filter(Disciplinary_required='YES', ).exclude(Case_Status='Closed')
+    results = Incident.objects.filter(disciplinary_required='YES', ).exclude(case_status='Closed')
     print results
     return render(request, "wardens/required.html", {"results": results})
 
 @login_required
 def taken(request):
-    results = Incident.objects.filter(Disciplinary_required='YES', Case_Status='Closed')
+    results = Incident.objects.filter(disciplinary_required='YES', case_status='Closed')
     print results
     return render(request, "wardens/taken.html", {"results": results})
 

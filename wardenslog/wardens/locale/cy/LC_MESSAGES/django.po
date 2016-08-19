@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-22 14:46+0100\n"
+"POT-Creation-Date: 2016-08-19 09:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,41 +19,109 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != "
 "11) ? 2 : 3;\n"
 
-#: templates/wardens/base.html:20
+#: models.py:8 models.py:15
+msgid "Name"
+msgstr "Enw"
+
+#: models.py:23
+msgid "banner id"
+msgstr "Id Banner"
+
+#: models.py:24
+msgid "surname"
+msgstr "Cyfenw"
+
+#: models.py:25
+msgid "forename"
+msgstr "Enw cyntaf"
+
+#: models.py:42
+#, fuzzy
+#| msgid "Title"
+msgid "title"
+msgstr "Teitl"
+
+#: models.py:45
+#, fuzzy
+#| msgid "Warden Name"
+msgid "warden name"
+msgstr "Enw Warden"
+
+#: models.py:46
+#, fuzzy
+#| msgid "Senior Warden"
+msgid "senior warden"
+msgstr "Uwch Warden"
+
+#: models.py:79
+msgid "Yes"
+msgstr "Ia"
+
+#: models.py:80
+msgid "No"
+msgstr "Na"
+
+#: models.py:88
+#, fuzzy
+#| msgid "Disciplinary called by"
+msgid "disciplinary called by"
+msgstr "Gelwir disgyblu gan"
+
+#: models.py:89
+#, fuzzy
+#| msgid "Disciplinary date"
+msgid "disciplinary date"
+msgstr "Dyddiad disgyblu"
+
+#: models.py:91
+#, fuzzy
+#| msgid "Complainant"
+msgid "complainant"
+msgstr "Achwynydd"
+
+#: models.py:92
+#, fuzzy
+#| msgid "Accomplices"
+msgid "accomplices"
+msgstr "Affeithiwr"
+
+#: models.py:93
+#, fuzzy
+#| msgid "Witnesses"
+msgid "witnesses"
+msgstr "Tystion"
+
+#: templates/wardens/base.html:32
 msgid "Wardens Log"
 msgstr "Log Wardeiniaid"
 
-#: templates/wardens/closed.html:5
-msgid "This is the cases table"
-msgstr "tabl achosion"
-
-#: templates/wardens/closed.html:8 templates/wardens/detail.html:32
-#: templates/wardens/required.html:9 templates/wardens/taken.html:8
+#: templates/wardens/closed.html:9 templates/wardens/detail.html:32
+#: templates/wardens/required.html:10 templates/wardens/taken.html:10
 msgid "Status"
 msgstr "Statws"
 
-#: templates/wardens/closed.html:9 templates/wardens/detail.html:8
-#: templates/wardens/required.html:10 templates/wardens/taken.html:9
+#: templates/wardens/closed.html:10 templates/wardens/detail.html:8
+#: templates/wardens/required.html:11 templates/wardens/taken.html:11
 msgid "Title"
 msgstr "Teitl"
 
-#: templates/wardens/closed.html:10 templates/wardens/detail.html:11
-#: templates/wardens/required.html:11 templates/wardens/taken.html:10
+#: templates/wardens/closed.html:11 templates/wardens/detail.html:11
+#: templates/wardens/required.html:12 templates/wardens/taken.html:12
 msgid "Date Created"
 msgstr "Dyddiad creu"
 
-#: templates/wardens/closed.html:11 templates/wardens/required.html:12
-#: templates/wardens/taken.html:11
+#: templates/wardens/closed.html:12 templates/wardens/required.html:13
+#: templates/wardens/taken.html:13
 msgid "Warden Name"
 msgstr "Enw Warden"
 
-#: templates/wardens/closed.html:12 templates/wardens/required.html:16
-#: templates/wardens/taken.html:12
+#: templates/wardens/closed.html:13 templates/wardens/required.html:17
+#: templates/wardens/taken.html:17
 msgid "View"
 msgstr "Golygfa"
 
-#: templates/wardens/closed.html:20 templates/wardens/required.html:28
-#: templates/wardens/taken.html:20
+#: templates/wardens/closed.html:23 templates/wardens/required.html:31
+#: templates/wardens/taken.html:30
 msgid "detail"
 msgstr "Manylion"
 
@@ -101,11 +169,13 @@ msgstr "Rhybudd cyhoeddi"
 msgid "Disciplinary required"
 msgstr "Camau disgyblu eu hangen"
 
-#: templates/wardens/detail.html:50 templates/wardens/required.html:14
+#: templates/wardens/detail.html:50 templates/wardens/required.html:15
+#: templates/wardens/taken.html:15
 msgid "Disciplinary called by"
 msgstr "Gelwir disgyblu gan"
 
-#: templates/wardens/detail.html:53 templates/wardens/required.html:15
+#: templates/wardens/detail.html:53 templates/wardens/required.html:16
+#: templates/wardens/taken.html:16
 msgid "Disciplinary date"
 msgstr "Dyddiad disgyblu"
 
@@ -125,7 +195,7 @@ msgstr "Achwynydd"
 msgid "Witnesses"
 msgstr "Tystion"
 
-#: templates/wardens/incident_form.html:14
+#: templates/wardens/incident_form.html:34
 msgid "Create Report"
 msgstr "Creu Adroddiad"
 
@@ -133,17 +203,10 @@ msgstr "Creu Adroddiad"
 msgid "Submit"
 msgstr "Cyflwyno"
 
-#: templates/wardens/required.html:7
-msgid "below is a list of pending disciplinary action "
-msgstr ""
-
-#: templates/wardens/required.html:13 templates/wardens/wardens.html:13
+#: templates/wardens/required.html:14 templates/wardens/taken.html:14
+#: templates/wardens/wardens.html:13
 msgid "Disciplinary Required"
 msgstr "Disgyblu ofynnol"
-
-#: templates/wardens/taken.html:5
-msgid "Taken disciplinary action"
-msgstr "Camau disgyblu a gymerwyd"
 
 #: templates/wardens/thankyou.html:7
 msgid "this is the logout page"
@@ -153,8 +216,10 @@ msgstr "Dyma'r dudalen allgofnodi"
 msgid ""
 "should you wish to log back in please click the button below to navigate "
 "back to the login page"
-msgstr "os hoffech fewngofnodi eto cliciwch ar y botwm isod i lywio "
-"nol ir tudalen login"
+msgstr ""
+"os hoffech fewngofnodi eto cliciwch ar y botwm isod i lywio nol ir tudalen "
+"login"
+
 #: templates/wardens/wardens.html:11
 msgid "Homepage"
 msgstr "Hafan"
@@ -171,6 +236,11 @@ msgstr "Disgyblu a cymerud"
 msgid "Cases"
 msgstr "Achosion"
 
-#: views.py:67
-msgid "Saved"
-msgstr "Achub"
+#~ msgid "This is the cases table"
+#~ msgstr "tabl achosion"
+
+#~ msgid "Taken disciplinary action"
+#~ msgstr "Camau disgyblu a gymerwyd"
+
+#~ msgid "Saved"
+#~ msgstr "Achub"

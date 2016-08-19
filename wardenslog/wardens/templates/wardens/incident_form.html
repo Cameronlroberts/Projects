@@ -7,15 +7,47 @@
     {% bootstrap_form_errors form %}
 <h3>Please fill out the below form with the necessary details regarding the incident</h3><br>
 <form action="." method="post">
-   {% bootstrap_form form %}
 
+    {% bootstrap_field form.title %}
+    {% bootstrap_field form.warden_name %}
+    {% bootstrap_field form.senior_warden %}
+    {% bootstrap_field form.site %}
+    {% bootstrap_field form.halls %}
+    {% bootstrap_field form.incident_type %}
+    {% bootstrap_field form.case_status %}
+    {% bootstrap_field form.description %}
+    {% bootstrap_field form.notes_to %}
+    {% bootstrap_field form.notes_by %}
+    {% bootstrap_field form.warning_issued %}
+    {% bootstrap_field form.disciplinary_required %}
+    <div class="disc-group">
+    {% bootstrap_field form.disciplinary_called_by %}
+    {% bootstrap_field form.disciplinary_date %}
+        </div>
+    {% bootstrap_field form.student %}
+    {% bootstrap_field form.complainant %}
+    {% bootstrap_field form.accomplices %}
+    {% bootstrap_field form.witnesses %}
 
    {% csrf_token %}
     <button type="submit" class="btn btn-primary">
     {% trans 'Create Report' %}
     </button>
 
-</form>
 
+
+<script>
+$(document).ready(function () {
+    $('#id_disciplinary_required').on('change', function () {
+        if (this.value == 'Yes') {
+            $('.disc-group').show(1000);
+        } else {
+            $('.disc-group').hide(1000)
+        }
+
+    });
+});
+
+</script>
+    </form>
 {% endblock %}
-

@@ -32,17 +32,9 @@ def incident(request):
     return render(request, 'wardens/incident.html')
 
 
-# def report(request):
-#   return HttpResponse("this is the report form")
-
 @login_required
 def closed(request):
     return render(request, 'wardens/closed.html')
-
-
-@login_required
-def thankyou(request):
-    return render(request, 'wardens/thankyou.html')
 
 
 @login_required
@@ -63,15 +55,12 @@ def incident_form(request):
 
     if form.is_valid():
         form.save()
-        messages.success(request, 'Saved')
+        messages.add_message(request, messages.INFO, 'Saved')
         return redirect('incident_form')
     print form.errors
     return render(request, 'wardens/incident_form.html', {
         'form': form,
     })
-
-
-
 
 
 def login_view(request):
@@ -102,15 +91,17 @@ def cases(request):
 
 @login_required
 def required(request):
-    results = Incident.objects.filter(disciplinary_required='YES', ).exclude(case_status='Closed')
+    results = Incident.objects.filter(disciplinary_required='Yes', ).exclude(case_status='Closed')
     print results
     return render(request, "wardens/required.html", {"results": results})
 
+
 @login_required
 def taken(request):
-    results = Incident.objects.filter(disciplinary_required='YES', case_status='Closed')
+    results = Incident.objects.filter(disciplinary_required='Yes', case_status='Closed')
     print results
     return render(request, "wardens/taken.html", {"results": results})
+
 
 @login_required
 def detail(request, pk):
@@ -126,8 +117,8 @@ def update(request, pk):
     instance = get_object_or_404(Incident, pk=pk)
     form = IncidentForm(request.POST or None, instance=instance)
     if form.is_valid():
-        instance = form.save()
-        instance.save()
+        form.save()
+        return redirect('required')
 
     context = {
         "title": instance.title,

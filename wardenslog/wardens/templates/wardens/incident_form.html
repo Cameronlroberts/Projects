@@ -5,7 +5,7 @@
 
 {% block content %}
     {% bootstrap_form_errors form %}
-<h3>Please fill out the below form with the necessary details regarding the incident</h3><br>
+<h3> {%  trans 'Please fill out the below form with the necessary details regarding the incident' %}</h3><br>
 <form action="." method="post">
 
     {% bootstrap_field form.title %}
@@ -29,7 +29,10 @@
     {% bootstrap_field form.accomplices %}
     {% bootstrap_field form.witnesses %}
 
-   {% csrf_token %}
+
+
+
+    {% csrf_token %}
     <button type="submit" class="btn btn-primary">
     {% trans 'Create Report' %}
     </button>

@@ -10,7 +10,6 @@ urlpatterns = [
     url(r'^cases/$', views.cases, name='closed'),
     url(r'^login/$', views.login_view, name='login'),
     url(r'^logout/$', views.logout_view, name='logout'),
-    url(r'^thankyou/$', views.thankyou, name='logout'),
     url(r'^required/$', views.required, name='required'),
     url(r'^taken/$', views.taken, name='taken'),
     url(r'^detail/(?P<pk>[0-9]+)/$', views.detail, name='detail'),

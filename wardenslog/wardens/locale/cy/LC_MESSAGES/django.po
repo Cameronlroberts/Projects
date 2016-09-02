@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-19 09:57+0100\n"
+"POT-Creation-Date: 2016-09-02 10:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,21 +35,33 @@ msgstr "Cyfenw"
 msgid "forename"
 msgstr "Enw cyntaf"
 
-#: models.py:42
+#: models.py:26 templates/wardens/detail.html:23
+msgid "Site"
+msgstr "Safle"
+
+#: models.py:27
 #, fuzzy
-#| msgid "Title"
+#| msgid "Halls"
+msgid "Hall"
+msgstr "Neuaddau"
+
+#: models.py:28
+msgid "Room Number"
+msgstr ""
+
+#: models.py:35
+msgid "Type"
+msgstr ""
+
+#: models.py:42
 msgid "title"
 msgstr "Teitl"
 
 #: models.py:45
-#, fuzzy
-#| msgid "Warden Name"
 msgid "warden name"
 msgstr "Enw Warden"
 
 #: models.py:46
-#, fuzzy
-#| msgid "Senior Warden"
 msgid "senior warden"
 msgstr "Uwch Warden"
 
@@ -59,17 +71,13 @@ msgstr "Ia"
 
 #: models.py:80
 msgid "No"
-msgstr "Na"
+msgstr "Nax"
 
 #: models.py:88
-#, fuzzy
-#| msgid "Disciplinary called by"
 msgid "disciplinary called by"
 msgstr "Gelwir disgyblu gan"
 
 #: models.py:89
-#, fuzzy
-#| msgid "Disciplinary date"
 msgid "disciplinary date"
 msgstr "Dyddiad disgyblu"
 
@@ -80,18 +88,14 @@ msgid "complainant"
 msgstr "Achwynydd"
 
 #: models.py:92
-#, fuzzy
-#| msgid "Accomplices"
 msgid "accomplices"
 msgstr "Affeithiwr"
 
 #: models.py:93
-#, fuzzy
-#| msgid "Witnesses"
 msgid "witnesses"
 msgstr "Tystion"
 
-#: templates/wardens/base.html:32
+#: templates/wardens/base.html:20
 msgid "Wardens Log"
 msgstr "Log Wardeiniaid"
 
@@ -136,10 +140,6 @@ msgstr "Warden"
 #: templates/wardens/detail.html:20
 msgid "Senior Warden"
 msgstr "Uwch Warden"
-
-#: templates/wardens/detail.html:23
-msgid "Site"
-msgstr "Safle"
 
 #: templates/wardens/detail.html:26
 msgid "Halls"
@@ -195,7 +195,13 @@ msgstr "Achwynydd"
 msgid "Witnesses"
 msgstr "Tystion"
 
-#: templates/wardens/incident_form.html:34
+#: templates/wardens/incident_form.html:8
+msgid ""
+"Please fill out the below form with the necessary details regarding the "
+"incident"
+msgstr ""
+
+#: templates/wardens/incident_form.html:37
 msgid "Create Report"
 msgstr "Creu Adroddiad"
 

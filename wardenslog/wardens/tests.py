@@ -11,6 +11,5 @@ class SiteTest(TestCase):
         def test_site_creation(self):
             w = self.create_site()
             self.assertTrue(isinstance(w, Site))
-           #self.assertEqual(w.__unicode__(), w.name)
-
+            self.assertEqual(w.__str__(), w.name)
 
